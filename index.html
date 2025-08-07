@@ -95,13 +95,32 @@
         #preloader-text { white-space: nowrap; }
 
         /* --- Hero Section Refinement --- */
+        #hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        #hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .hero-text-container {
-            position: relative;
-            z-index: 5; /* Above 3D model, below HUD */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5; /* Above video, below HUD */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            pointer-events: none; /* Allow interaction with video underneath */
         }
         .hero-vignette {
             position: absolute;
@@ -109,7 +128,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(ellipse at center, transparent 30%, rgba(2, 3, 5, 0.8) 70%);
-            z-index: 2; /* Between model and text */
+            z-index: 2; /* Between video and text */
         }
         .hero-title {
             font-family: 'Orbitron', sans-serif;
@@ -211,8 +230,12 @@
 
     <div class="content-wrapper">
         <main>
-            <!-- Hero Section -->
             <section class="content-section h-screen text-center">
+                <div id="hero-video-container">
+                    <video id="hero-video" loop muted autoplay playsinline>
+                        <source src="megan_glass.MP4" type="video/mp4">
+                    </video>
+                </div>
                 <div class="hero-vignette"></div>
                 <div class="hero-text-container">
                     <h2 class="hero-subtitle decode-text">CODENAME: VIXEN</h2>
@@ -220,7 +243,6 @@
                 </div>
             </section>
 
-            <!-- Profile Section -->
             <section class="content-section container mx-auto" id="profile-section">
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3 text-left">
@@ -233,26 +255,24 @@
                         </div>
                     </div>
                     <div class="md:col-span-2 relative h-96 md:h-[60vh]" data-anim="profile-image">
-                        <img src="https://placehold.co/600x800/0A192F/00F6FF?text=Profile+Scan" alt="Megan Fox Profile Placeholder" class="object-cover w-full h-full" style="clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%); box-shadow: 0 0 40px -10px var(--secondary-glow);">
+                        <img src="http://googleusercontent.com/file_content/0" alt="Megan Fox Profile" class="object-cover w-full h-full" style="clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%); box-shadow: 0 0 40px -10px var(--secondary-glow);">
                     </div>
                 </div>
             </section>
 
-            <!-- Showcase Section -->
             <section class="content-section" id="showcase-section">
                 <h2 class="section-title text-5xl md:text-7xl text-center mb-12 decode-text">VISUAL ARCHIVE</h2>
                 <div class="showcase-grid">
-                    <div class="grid-item item-1" data-anim="grid-item"><img src="https://placehold.co/800x1000/0A192F/00F6FF?text=Golden+Construct" alt="Showcase 1"><div class="overlay">Golden Construct</div></div>
-                    <div class="grid-item item-2" data-anim="grid-item"><img src="https://placehold.co/600x600/0A192F/00F6FF?text=Cosmic+Entity" alt="Showcase 2"><div class="overlay">Cosmic Entity</div></div>
-                    <div class="grid-item item-3" data-anim="grid-item"><img src="https://placehold.co/1000x1200/0A192F/00F6FF?text=Noble+Bearing" alt="Showcase 3"><div class="overlay">Noble Bearing</div></div>
-                    <div class="grid-item item-4" data-anim="grid-item"><img src="https://placehold.co/800x800/0A192F/00F6FF?text=Crimson+Dynamo" alt="Showcase 4"><div class="overlay">Crimson Dynamo</div></div>
-                    <div class="grid-item item-5" data-anim="grid-item"><img src="https://placehold.co/600x1200/0A192F/00F6FF?text=Heroic+Stance" alt="Showcase 5"><div class="overlay">Heroic Stance</div></div>
-                    <div class="grid-item item-6" data-anim="grid-item"><img src="https://placehold.co/400x600/0A192F/00F6FF?text=Celestial+Form" alt="Showcase 6"><div class="overlay">Celestial Form</div></div>
-                    <div class="grid-item item-7" data-anim="grid-item"><img src="https://placehold.co/600x600/0A192F/00F6FF?text=Sunset+Vigil" alt="Showcase 7"><div class="overlay">Sunset Vigil</div></div>
+                    <div class="grid-item item-1" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 1"><div class="overlay">Golden Construct</div></div>
+                    <div class="grid-item item-2" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 2"><div class="overlay">Cosmic Entity</div></div>
+                    <div class="grid-item item-3" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 3"><div class="overlay">Noble Bearing</div></div>
+                    <div class="grid-item item-4" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 4"><div class="overlay">Crimson Dynamo</div></div>
+                    <div class="grid-item item-5" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 5"><div class="overlay">Heroic Stance</div></div>
+                    <div class="grid-item item-6" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 6"><div class="overlay">Celestial Form</div></div>
+                    <div class="grid-item item-7" data-anim="grid-item"><img src="http://googleusercontent.com/file_content/0" alt="Showcase 7"><div class="overlay">Sunset Vigil</div></div>
                 </div>
             </section>
 
-            <!-- Final Section -->
             <section class="content-section text-center">
                 <h2 class="section-title text-6xl md:text-8xl lg:text-9xl decode-text">STATUS: ICON</h2>
                 <p class="text-primary-glow mt-4 text-lg decode-text">// PROTOCOL VIXEN: COMPLETE</p>
